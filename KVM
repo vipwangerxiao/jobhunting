@@ -1,4 +1,4 @@
-KVM包括两个部分
+KVM包括两个部分(http://www.linuxidc.com/Linux/2015-01/112328.htm)
 
 KVM驱动，是Linux内核的一个模块，主要负责虚拟机的创建，虚拟内存的分配，VCPU寄存器的读写，以及虚拟CPU的执行
 
@@ -11,7 +11,7 @@ Qemu利用libkvm库通过 IOCTL调用进入内核模式，KVM为虚拟机创建�
 如果发生I/O事件或者信号队列中有信号到达，就会进入用户模式处理。
 
 
-KVM 内存虚拟化及其实现
+KVM 内存虚拟化及其实现(http://www.ibm.com/developerworks/cn/linux/l-cn-kvm-mem/)
 
 1，影子页表
 Guest OS 虚拟地址 经过 guest页表 转换为 guest 物理地址， guest物理地址经过kvm_memory_slot 转换为Host虚拟地址，
