@@ -1,0 +1,52 @@
+
+typedef long long ll;
+typedef vector<ll>  vec;
+typedef vector<vec> mat;
+
+vec matrix_solve(mat &A,vec &b)
+{
+
+
+
+   int n=A.size();
+
+
+
+   mat B(n,vec(n+1));
+   for(int i=0;i<n;i++)
+    for(int j=0;j<n;j++)B[i][j]=A[i][j];
+   for(int i=0;i<n;i++)B[i][n]=b[i];
+
+   //PPP
+
+
+   for(int i=0;i<n;i++)
+   {
+
+
+
+      int pos=i;
+      for(int j=i+1;j<n;j++)if(abs(B[j][i])>abs(B[pos][i]))pos=j;
+      swap(B[i],B[pos]);
+     // cout<<pos<<endl;
+      int tmp=B[i][i];
+      if(tmp==0)return vec();
+      for(int j=i;j<=n;j++)B[i][j]/=tmp;
+      for(int j=0;j<n;j++)
+        if(i!=j)
+      {
+          tmp=B[j][i];
+          for(int k=i;k<=n;k++)
+            B[j][k]-=tmp*B[i][k];
+
+      }
+
+  //  PPP
+   }
+    vec res(n);
+    for(int i=0;i<n;i++)res[i]=B[i][n];
+    return res;
+
+
+
+}
